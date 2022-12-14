@@ -63,6 +63,73 @@ function App() {
     // fetchData();
   }, []);
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = {
+      TellsLiesToHurtOtherPeople,
+      Icannotfigureoutwhatmakeshimherhappy,
+      Threatenstohurtothers,
+      Isconstantlymoving,
+      Hastroublewithreading,
+      Isangryandresentful,
+      Hasshortattentionspan,
+      Excitable,
+      Cannotdothingsright,
+      HastroubleConcentrating,
+      Tellthetruth,
+      Hastroubleinorganizing,
+      Isfuntobearound,
+      Inattentive,
+      Ismessyordisorganized,
+      SpellingIsPoor,
+      Ispatientandconstant,
+      HasnoFriends,
+      Doesnotunderstand,
+      behaveLikeanangel,
+      HasTroubleKeppingUp,
+      Hastostruggletocomplete,
+      Doesnotgetinvited,
+      Doyouhaveanyotherconcerns,
+      WhatStrengthsorSkillsdoesyourchildhave,
+    };
+    try {
+      console.log(data);
+      const res = await axios.post("http://localhost:8000/api/add/",data);
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const handleClear = () => {
+    setTellsLiesToHurtOtherPeople(-1);
+    setIcannotfigureoutwhatmakeshimherhappy(-1);
+    setThreatenstohurtothers(-1);
+    setIsconstantlymoving(-1);
+    setHastroublewithreading(-1);
+    setIsangryandresentful(-1);
+    setHasshortattentionspan(-1);
+    setExcitable(-1);
+    setCannotdothingsright(-1);
+    setHastroubleConcentrating(-1);
+    setTellthetruth(-1);
+    setHastroubleinorganizing(-1);
+    setIsfuntobearound(-1);
+    setInattentive(-1);
+    setIsmessyordisorganized(-1);
+    setSpellingIsPoor(-1);
+    setIspatientandconstant(-1);
+    setHasnoFriends(-1);
+    setDoesnotunderstand(-1);
+    setbehaveLikeanangel(-1);
+    setHasTroubleKeppingUp(-1);
+    setHastostruggletocomplete(-1);
+    setDoesnotgetinvited(-1);
+    setDoyouhaveanyotherconcerns("");
+    setWhatStrengthsorSkillsdoesyourchildhave("");
+  };
+
+
   const TellsLiesToHurtOtherPeopleChange = (event) => {
     setTellsLiesToHurtOtherPeople(event.target.value);
   };
@@ -573,7 +640,7 @@ function App() {
             </div>
 
             <div className="space" style={{display:"flex" , justifyContent:"space-around" , alignItems: "center" , marginTop:"3%" , paddingBottom:"5%"}}>
-              <Button variant="outlined" style={{color:"green" , borderColor:"green"}}>Submit</Button>
+              <Button variant="outlined" style={{color:"green" , borderColor:"green"}} onClick={handleSubmit}>Submit</Button>
               <Button variant="outlined" style={{color:"red" , borderColor:"red"}}>Clear Form</Button>
             </div>
             {/* </FormControl> */}
