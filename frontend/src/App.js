@@ -80,6 +80,8 @@ function App() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if(TellsLiesToHurtOtherPeople!=-1 && Icannotfigureoutwhatmakeshimherhappy!=-1 && Threatenstohurtothers!=-1 && Isconstantlymoving!=-1 && Hastroublewithreading!=-1 && Isangryandresentful!=-1 && Hasshortattentionspan!=-1 && Excitable!=-1 && Cannotdothingsright!=-1 && HastroubleConcentrating!=-1 && Tellthetruth!=-1 && Hastroubleinorganizing!=-1 && Isfuntobearound!=-1 && Inattentive!=-1 && Ismessyordisorganized!=-1 && SpellingIsPoor!=-1 && Ispatientandconstant!=-1 && HasnoFriends!=-1 && Doesnotunderstand!=-1 && behaveLikeanangel!=-1 && HasTroubleKeppingUp!=-1 && Hastostruggletocomplete!=-1 && Doesnotgetinvited!=-1 && Doyouhaveanyotherconcerns!="" && WhatStrengthsorSkillsdoesyourchildhave!="")
+    {
     const data = {
       'one': TellsLiesToHurtOtherPeople,
       'two': Icannotfigureoutwhatmakeshimherhappy,
@@ -114,6 +116,10 @@ function App() {
     } catch (err) {
       console.log(err);
     }
+  }else
+  {
+    alert("Please fill all the fields");
+  }
   }
 
   const handleClear = () => {
