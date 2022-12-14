@@ -9,6 +9,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Button from '@mui/material/Button';
+import axios from "axios";
 
 const options = [
   [0, "Never/ Seldom"],
@@ -47,6 +48,20 @@ function App() {
   const [Doesnotgetinvited, setDoesnotgetinvited] = React.useState(-1);
   const [Doyouhaveanyotherconcerns, setDoyouhaveanyotherconcerns] = React.useState("");
   const [WhatStrengthsorSkillsdoesyourchildhave, setWhatStrengthsorSkillsdoesyourchildhave] = React.useState("");
+
+  useEffect(() => {
+    // async function fetchData() {
+    //   try{
+    //     const data = await axios.get("http://localhost:8000/api/data");
+    //     // console.log("hello");
+    //     console.log(data.data);
+    //   }
+    //   catch(err){
+    //     console.log(err);
+    //   }
+    // }
+    // fetchData();
+  }, []);
 
   const TellsLiesToHurtOtherPeopleChange = (event) => {
     setTellsLiesToHurtOtherPeople(event.target.value);
