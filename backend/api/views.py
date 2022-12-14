@@ -9,12 +9,10 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 
 def add(request,format=None):
-    # print("ascas")
-    # return HttpResponse("Hello World")
-    # if request.method == 'POST':
-        data = request
-        print(data.POST)
-        serializer = DataSerializer(data=data)
+        data = request.body.decode('utf-8')
+        print(data)
+        datas = json.loads(data)
+        serializer = DataSerializer(data=datas)
         if serializer.is_valid():
             serializer.save()
             return HttpResponse("Data saved successfully!")

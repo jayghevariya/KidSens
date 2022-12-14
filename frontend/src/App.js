@@ -66,31 +66,31 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {
-      TellsLiesToHurtOtherPeople,
-      Icannotfigureoutwhatmakeshimherhappy,
-      Threatenstohurtothers,
-      Isconstantlymoving,
-      Hastroublewithreading,
-      Isangryandresentful,
-      Hasshortattentionspan,
-      Excitable,
-      Cannotdothingsright,
-      HastroubleConcentrating,
-      Tellthetruth,
-      Hastroubleinorganizing,
-      Isfuntobearound,
-      Inattentive,
-      Ismessyordisorganized,
-      SpellingIsPoor,
-      Ispatientandconstant,
-      HasnoFriends,
-      Doesnotunderstand,
-      behaveLikeanangel,
-      HasTroubleKeppingUp,
-      Hastostruggletocomplete,
-      Doesnotgetinvited,
-      Doyouhaveanyotherconcerns,
-      WhatStrengthsorSkillsdoesyourchildhave,
+      'one': TellsLiesToHurtOtherPeople,
+      'two': Icannotfigureoutwhatmakeshimherhappy,
+      'three': Threatenstohurtothers,
+      'four': Isconstantlymoving,
+      'five': Hastroublewithreading,
+      'six': Isangryandresentful,
+      'seven': Hasshortattentionspan,
+      'eight': Excitable,
+      'nine': Cannotdothingsright,
+      'ten': HastroubleConcentrating,
+      'eleven': Tellthetruth,
+      'twelve': Hastroubleinorganizing,
+      'thirteen': Isfuntobearound,
+      'fourteen': Inattentive,
+      'fifteen': Ismessyordisorganized,
+      'sixteen': SpellingIsPoor,
+      'seventeen': Ispatientandconstant,
+      'eighteen': HasnoFriends,
+      'nineteen': Doesnotunderstand,
+      'twenty': behaveLikeanangel,
+      'twentyone': HasTroubleKeppingUp,
+      'twentytwo': Hastostruggletocomplete,
+      'twentythree': Doesnotgetinvited,
+      'twentyfour': Doyouhaveanyotherconcerns,
+      'twentyfive': WhatStrengthsorSkillsdoesyourchildhave,
     };
     try {
       console.log(data);
@@ -641,7 +641,7 @@ function App() {
 
             <div className="space" style={{display:"flex" , justifyContent:"space-around" , alignItems: "center" , marginTop:"3%" , paddingBottom:"5%"}}>
               <Button variant="outlined" style={{color:"green" , borderColor:"green"}} onClick={handleSubmit}>Submit</Button>
-              <Button variant="outlined" style={{color:"red" , borderColor:"red"}}>Clear Form</Button>
+              <Button variant="outlined" style={{color:"red" , borderColor:"red"}} onClick={handleClear}>Clear Form</Button>
             </div>
             {/* </FormControl> */}
           </div>
