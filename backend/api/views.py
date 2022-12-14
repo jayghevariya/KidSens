@@ -22,3 +22,7 @@ def add(request,format=None):
 def show_data(self):
     data = Data.objects.all()
     return HttpResponse(data)
+
+class DataViewSet(viewsets.ModelViewSet):
+    queryset = Data.objects.all()
+    serializer_class = DataSerializer

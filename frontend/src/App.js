@@ -48,19 +48,34 @@ function App() {
   const [Doesnotgetinvited, setDoesnotgetinvited] = React.useState(-1);
   const [Doyouhaveanyotherconcerns, setDoyouhaveanyotherconcerns] = React.useState("");
   const [WhatStrengthsorSkillsdoesyourchildhave, setWhatStrengthsorSkillsdoesyourchildhave] = React.useState("");
+  const [ViewALL,setViewALL] = useState(false);
+  const [Datas,setDatas] = useState([]);
+
+    async function fetchData() {
+      try{
+        const data = await axios.get("http://localhost:8000/api/data");
+        // console.log("hello");
+        console.log(data.data);
+        setDatas(data.data);
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
 
   useEffect(() => {
-    // async function fetchData() {
-    //   try{
-    //     const data = await axios.get("http://localhost:8000/api/data");
-    //     // console.log("hello");
-    //     console.log(data.data);
-    //   }
-    //   catch(err){
-    //     console.log(err);
-    //   }
-    // }
-    // fetchData();
+    async function fetchData() {
+      try{
+        const data = await axios.get("http://localhost:8000/api/data");
+        // console.log("hello");
+        console.log(data.data);
+        setDatas(data.data);
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+    fetchData();
   }, []);
 
   const handleSubmit = async (event) => {
@@ -236,6 +251,7 @@ function App() {
       {/* {console.log(TellsLiesToHurtOtherPeople)}
       {console.log(Icannotfigureoutwhatmakeshimherhappy)}
       {console.log(Threatenstohurtothers)} */}
+      {console.log(Datas)}
       <Container fixed>
         <Box sx={{ bgcolor: "#cfe8fc", height: "100" }}>
           {/* <FormControl fullWidth> */}
@@ -646,6 +662,75 @@ function App() {
             {/* </FormControl> */}
           </div>
         </Box>
+
+        <div style={{textAlign:"center",margin:"4% 0%"}}>
+          <Button variant="outlined" style={{color:"blue" , borderColor:"blue"}} onClick={fetchData}>View ALL</Button>
+        </div>
+
+        <table style={{'border': '1px solid black','fontSize':'10px'}}>
+          <thead>
+            <th>Tells lies to hurt other people</th>
+            <th>I cannot figure out what makes him/her happy.</th>
+            <th>Threatens to hurt others</th>
+            <th>Is constantly moving</th>
+            <th>Has trouble with reading</th>
+            <th>Is angry and resentful</th>
+            <th>Has a short attention span</th>
+            <th>Excitable, impulsive</th>
+            <th>Cannot do things right.</th>
+            <th>Has trouble concentrating.</th>
+            <th>Tells the truth; doesn't even tell "little white lies".</th>
+            <th>Has trouble in organizing tasks or activities.</th>
+            <th>Is fun to be around.</th>
+            <th>Inattentive, easily distracted.</th>
+            <th>Is messy or disorganized.</th>
+            <th>Spelling is poor.</th>
+            <th>Is patient and content, even when waiting in a long line.</th>
+            <th>Has no friends.</th>
+            <th>Does not understand what he/she reads.</th>
+            <th>Behaves like an angel.</th>
+            <th>Has trouble keeping his/her mind on work or on play for long.*</th>
+            <th>Has to struggle to complete hard tasks.</th>
+            <th>Does not get invited to play or go out with others.</th>
+            <th>Do you have any other concerns about your child?</th>
+            <th>What strengths or skills does your child have?</th>
+          </thead>
+          <tbody>
+            {Datas.map((item) => (
+               <tr>
+                    <td>{options[item['one']][1]}</td>
+                    <td>{options[item['two']][1]}</td>
+                    <td>{options[item['three']][1]}</td>
+                    <td>{options[item['four']][1]}</td> 
+                    <td>{options[item['five']][1]}</td>
+                    <td>{options[item['six']][1]}</td>
+                    <td>{options[item['seven']][1]}</td>
+                    <td>{options[item['eight']][1]}</td>
+                    <td>{options[item['nine']][1]}</td>
+                    <td>{options[item['ten']][1]}</td>
+                    <td>{options[item['eleven']][1]}</td>
+                    <td>{options[item['twelve']][1]}</td>
+                    <td>{options[item['thirteen']][1]}</td>
+                    <td>{options[item['fourteen']][1]}</td>
+                    <td>{options[item['fifteen']][1]}</td>
+                    <td>{options[item['sixteen']][1]}</td>
+                    <td>{options[item['seventeen']][1]}</td>
+                    <td>{options[item['eighteen']][1]}</td>
+                    <td>{options[item['nineteen']][1]}</td>
+                    <td>{options[item['twenty']][1]}</td>
+                    <td>{options[item['twentyone']][1]}</td>
+                    <td>{options[item['twentytwo']][1]}</td>
+                    <td>{options[item['twentythree']][1]}</td>
+                    <td>{item['twentyfour']}</td>
+                    <td>{item['twentyfive']}</td>
+                </tr>
+            
+              
+              ))}
+
+            
+          </tbody>
+        </table>
       </Container>
     </div>
   );
