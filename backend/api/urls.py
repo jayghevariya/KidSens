@@ -6,4 +6,3 @@ urlpatterns = [
     path('add/', views.add),
     path('data/', views.DataViewSet.as_view({'get': 'list'}))
 ]
-
